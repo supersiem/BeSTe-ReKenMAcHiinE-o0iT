@@ -48,9 +48,10 @@ function reken(nummer) {
     if (nummer == "=") {
         let string = user_input.join("");
         antwoord.innerHTML = eval(string) + random_number(-10, 10);
-        user_input = [antwoord.innerHTML];
+        antwoord.innerHTML.replaceAll("=", "");
+        user_input = [antwoord.innerHTML.replaceAll("=", "")];
     }
-    if (nummer == "pasta") {
+    else if (nummer == "pasta") {
         antwoord.innerHTML = "pasta is lekker";
     }
     else if (nummer == "DEL") {
