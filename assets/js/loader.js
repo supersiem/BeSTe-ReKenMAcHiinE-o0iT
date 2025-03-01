@@ -34,18 +34,24 @@ function render() {
 }
 function random_number(a = 0, b = 100) { return Math.floor(Math.random() * (b + 1)); }
 function get_random_nummer_or_operator() {
+    if (random_number(0, 5) == 50000) {
+        nummers = ["pasta"];
+    }
+
     if (flip_a_coin() == 1) {
         return letters[Math.floor(Math.random() * letters.length)];
     } else {
-
         return random_number(0, 500);
     }
 }
 function reken(nummer) {
     if (nummer == "=") {
         let string = user_input.join("");
-        antwoord.innerHTML = eval(string);
+        antwoord.innerHTML = eval(string) + random_number(-10, 10);
         user_input = [antwoord.innerHTML];
+    }
+    if (nummer == "pasta") {
+        antwoord.innerHTML = "pasta is lekker";
     }
     else if (nummer == "DEL") {
         user_input.pop();
